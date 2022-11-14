@@ -1,7 +1,7 @@
 #ifndef STACK_H
 #define STACK_H
 struct sStack{
-    char name[8];
+    char name[15];
     unsigned int age;
     sStack* next;
 };
