@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include<string.h>
 void CStack::InitStack(){
-    //char name[4]={'H','e','a','d'}��
+    //char name[4]={'H','e','a','d'}��
     strcpy(sEmployee.name,"head");
     //sEmployee.name=;
     //sEmployee.name[]={'h','a','e','d'};
@@ -34,10 +34,48 @@ void CStack::ShowStack()
         std::cout<<tmp->name<<tmp->age<<std::endl;
     }
 }
+
+
+CNewStack::CNewStack(unsigned int nInput,std::string sInput)
+{
+    nUid=nInput;
+    name=sInput;
+    pNext=nullptr;
+}
+CNewStack::~CNewStack()
+{
+    //默认清楚节点
+}
+std::string CNewStack::PopNode()
+{
+    std::string sRet;
+    if(pNext)
+    { 
+        CNewStack* ptemStack;
+        ptemStack=pNext;
+        sRet=pNext->name;
+        pNext=pNext->pNext;
+        delete ptemStack;
+    }
+    else
+    {
+        std::cout<<"no member error";
+        sRet="no member error";
+    }
+    return sRet;
+}
+void CNewStack::AddNode(unsigned int nInput,std::string sInput)
+{
+    CNewStack* pTemStack;
+    pTemStack=pNext;
+    pNext=new CNewStack(nInput,sInput);
+    pNext->pNext=pTemStack;
+}
 int  main()
 {
 
-    CStack CEmploy;
+    //第一次栈2022.12.03
+ /*  CStack CEmploy;
     CEmploy.InitStack();
    for(int i=0;i<2;i++)
     {
@@ -56,5 +94,15 @@ int  main()
     }
     CEmploy.ShowStack();
     return 0;
+*/ 
 
+    //second stack test 2022.12.03
+    unsigned int nTem=0;
+    std::string sTem="Head";
+    CNewStack * MemberHead=new  CNewStack(nTem,sTem);
+    MemberHead->AddNode(1,"Sdragon1 ");
+    MemberHead->AddNode(2,"Sdragon2 ");
+    std::cout<<MemberHead->PopNode();
+    std::cout<<MemberHead->PopNode();
+    std::cout<<MemberHead->PopNode();
 }
