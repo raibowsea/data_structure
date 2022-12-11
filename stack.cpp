@@ -3,7 +3,7 @@
 #include<stdlib.h>
 #include<string.h>
 void CStack::InitStack(){
-    //char name[4]={'H','e','a','d'}��
+    //char name[4]={'H','e','a','d'}锟斤拷
     strcpy(sEmployee.name,"head");
     //sEmployee.name=;
     //sEmployee.name[]={'h','a','e','d'};
@@ -44,7 +44,7 @@ CNewStack::CNewStack(unsigned int nInput,std::string sInput)
 }
 CNewStack::~CNewStack()
 {
-    //默认清楚节点
+    //榛樿娓呮鑺傜偣
 }
 std::string CNewStack::PopNode()
 {
@@ -74,7 +74,7 @@ void CNewStack::AddNode(unsigned int nInput,std::string sInput)
 int  main()
 {
 
-    //第一次栈2022.12.03
+    //绗竴娆℃爤2022.12.03
  /*  CStack CEmploy;
     CEmploy.InitStack();
    for(int i=0;i<2;i++)
