@@ -36,6 +36,8 @@ public:
     ~CNewStack();
     void AddNode(unsigned int nInput,std::string sInput);
     std::string PopNode();
+    void DeleteStack();
+    void ShowName();
 };
 
 

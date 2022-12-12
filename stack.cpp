@@ -68,13 +68,35 @@ void CNewStack::AddNode(unsigned int nInput,std::string sInput)
 {
     CNewStack* pTemStack;
     pTemStack=pNext;
+    pNext=nullptr;
     pNext=new CNewStack(nInput,sInput);
     pNext->pNext=pTemStack;
+}
+
+void CNewStack::DeleteStack()
+{
+    CNewStack *tmpNode;
+    
+    while(pNext!=nullptr) //初始栈为空
+    {
+        tmpNode=pNext->pNext;
+        delete pNext;
+        pNext=tmpNode;
+        
+    }
+    std::cout<<"the stack no node";
+    return;
+}
+
+void CNewStack::ShowName()
+{
+    std::cout<<this->name;
+    return;
 }
 int  main()
 {
 
-    //绗竴娆℃爤2022.12.03
+    //first stack 2022.12.03
  /*  CStack CEmploy;
     CEmploy.InitStack();
    for(int i=0;i<2;i++)
@@ -102,7 +124,12 @@ int  main()
     CNewStack * MemberHead=new  CNewStack(nTem,sTem);
     MemberHead->AddNode(1,"Sdragon1 ");
     MemberHead->AddNode(2,"Sdragon2 ");
-    std::cout<<MemberHead->PopNode();
-    std::cout<<MemberHead->PopNode();
-    std::cout<<MemberHead->PopNode();
+    MemberHead->DeleteStack();
+    //std::cout<<MemberHead->PopNode();
+    //std::cout<<MemberHead->PopNode();
+   //std::cout<<MemberHead->PopNode();
+    if((MemberHead->pNext)==nullptr)
+    std::cout<<"clear stack successfully";
+    MemberHead->ShowName();
+    //else
 }
